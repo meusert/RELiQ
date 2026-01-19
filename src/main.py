@@ -1550,13 +1550,13 @@ finally:
                 netmon.state = None
 
             # evaluate
-            if isinstance(env.get(), Routing) and args.random_topology:
+            if isinstance(env.get(), EntanglementEnv) and args.random_topology:
                 env.get().network.seeds = EVAL_SEEDS
                 env.get().network.sequential_topology_seeds = True
 
                 if args.eval_episodes > len(EVAL_SEEDS):
                     print("WARNING: DUPLICATE EVAL SEEDS")
-            elif isinstance(env.get(), Routing) and args.random_topology:
+            elif isinstance(env.get(), EntanglementEnv) and args.random_topology:
                 env.get()
 
             print("Performing Evaluation")
