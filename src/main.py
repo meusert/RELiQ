@@ -1290,10 +1290,13 @@ try:
                 writer.flush()
 
                 if mean_reward > best_mean_reward:
+                    # The sample size is too small for this to be expressive. We used the last trained model in the paper.
+                    '''
                     torch.save(
                         get_state_dict(model, netmon, args.__dict__),
                         Path(writer.get_logdir()) / "model_best.pt",
                     )
+                    '''
                     best_mean_reward = mean_reward
 
         if (
